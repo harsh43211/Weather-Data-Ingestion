@@ -1,5 +1,4 @@
-
-from weather_app.models import Weather, Stats
+from .models import Weather, Stats
 from rest_framework.test import APITestCase
 from django.urls import reverse
 from rest_framework import status
@@ -7,12 +6,17 @@ from rest_framework import status
 
 class WeatherTestCase(APITestCase):
     """
-        Test Weather Endpoints
+    Test Weather Endpoints
     """
 
     def test_get_weather(self):
         Weather.objects.create(
-            Station_ID="USC001278", Date="19830507", Maxtemp=45, Mintemp=10, Precipitation=50)
+            Station_ID="USC001278",
+            Date="19830507",
+            Maxtemp=45,
+            Mintemp=10,
+            Precipitation=50,
+        )
         response = self.client.get(reverse("weather"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data.get("results")), 1)
@@ -21,16 +25,16 @@ class WeatherTestCase(APITestCase):
 
 class StatsTestCase(APITestCase):
     """
-        Test Stats Endpoints
+    Test Stats Endpoints
     """
 
     def test_get_stats(self):
         Stats.objects.create(
-            Date='2023-21-01',
-            Station_ID='USC001278',
+            Date="2023-21-01",
+            Station_ID="USC001278",
             AvgMaxtemp=30,
             AvgMintemp=7,
-            TotalAccPrecipitation=120
+            TotalAccPrecipitation=120,
         )
         response = self.client.get(reverse("stats"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
