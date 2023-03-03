@@ -1,7 +1,8 @@
 @echo off
 
 :: create virtual environment
-python -m venv env
+pip install virtualenv
+virtualenv env
 
 :: activate environment
 env\Scripts\activate

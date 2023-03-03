@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # create virtual environment
-python3 -m venv env
+pip3 install virtualenv
+virtualenv env
 
 # activate environment
 source env/bin/activate
 
 # install requirements
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # migrate database
 python3 src/manage.py makemigrations

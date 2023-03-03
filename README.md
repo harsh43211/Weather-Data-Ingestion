@@ -18,6 +18,12 @@ The following prerequisites are required to use this API:
 
 ## Installation and Usage
 
+### Automatic Installation:
+
+    ./run.sh (in Linux and Mac)
+    ./run.bat (in Windows)
+
+### Manual Installation:
 ### To install the required dependencies, create and activate a virtual environment with the following commands:
 
     pip install virtualenv
